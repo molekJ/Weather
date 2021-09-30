@@ -41,22 +41,20 @@ function App() {
 
       <SelectInfo>
         <h2>Zaznaczony element:</h2>
-        <p>
-          {selectedCity && `Szerokość geograficzna: ${selectedCity.latitude}`}
-        </p>
-        <p>
-          {selectedCity && `Długośc geograficzna: ${selectedCity.longitude}`}
-        </p>
+
         {loading ? (
           <div>...loading</div>
         ) : (
           <div>
+            <p>Szerokość geograficzna: {data.lat}</p>
+            <p>Długośc geograficzna: {data.lon}</p>
             <p>Nazwa: {data.name}</p>
             <p>
               Temperatura:{" "}
-              {(Math.round((data.main.temp - 273.15) * 100) / 100).toFixed(1)}
+              {(Math.round((data.temp - 273.15) * 100) / 100).toFixed(1)}
             </p>
-            <p>Ciśnienie: {data.main.pressure}</p>
+            <p>Ciśnienie: {data.pressure}</p>
+            <p>Strefa czasowa: {data.timeZone}</p>
           </div>
         )}
       </SelectInfo>

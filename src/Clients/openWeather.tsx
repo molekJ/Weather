@@ -12,7 +12,15 @@ export const OpenWeather = (url: string, selectedCity: Coordinate | null) => {
     const fetchData = async (url: string) => {
       const response = await fetch(url);
       const dataFetch = await response.json();
-      setData(dataFetch);
+      const cityInfo = {
+        name: dataFetch.name,
+        temp: dataFetch.main.temp,
+        pressure: dataFetch.main.pressure,
+        lat: dataFetch.coord.lat,
+        lon: dataFetch.coord.lon,
+        timeZone: dataFetch.timezone,
+      };
+      setData({ ...cityInfo });
       setLoading(false);
     };
     fetchData(url);
