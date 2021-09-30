@@ -44,4 +44,11 @@ export const citiesInfo: City[] = [
       longitude: "16.9781963",
     },
   },
+  {
+    name: "Lublin",
+    coordinates: {
+      latitude: "51.251618",
+      longitude: "22.568970",
+    },
+  },
 ];
