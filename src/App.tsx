@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Cities } from "./Components/Cities";
-import { Details } from "./Components/Details";
+
 import { GlobalStyle } from "./GlobalStyles";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Coordinate } from "./Config/citiesInfo";
 import { OpenWeather } from "./Clients/openWeather";
+import { SearchCity } from "./Components/SearchCity";
 
 const Container = styled.div`
   display: flex;
@@ -36,7 +37,6 @@ function App() {
           selectedCity={selectedCity}
           onCityClick={handleCitySelection}
         ></Cities>
-        <Details selectedCity={selectedCity}></Details>
       </Container>
 
       <SelectInfo>
@@ -58,6 +58,7 @@ function App() {
           </div>
         )}
       </SelectInfo>
+      <SearchCity></SearchCity>
     </>
   );
 }
