@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { isConstructorDeclaration } from "typescript";
 import { Coordinate } from "../Config/citiesInfo";
 
 export const OpenWeather = (url: string, selectedCity: Coordinate | null) => {

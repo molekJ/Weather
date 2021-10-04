@@ -28,7 +28,6 @@ function App() {
     selectedCity
   );
 
-  console.log(data);
   return (
     <>
       <GlobalStyle></GlobalStyle>
