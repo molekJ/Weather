@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Coordinate } from "../Config/citiesInfo";
 
-export const OpenWeather = (url: string, selectedCity: Coordinate | null) => {
+export const Search = (url: string, input: string | null) => {
   const [data, setData] = useState<boolean | any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (selectedCity === null) {
+    if (input === null) {
       return;
     }
     const fetchData = async (url: string) => {
@@ -24,7 +24,7 @@ export const OpenWeather = (url: string, selectedCity: Coordinate | null) => {
       setLoading(false);
     };
     fetchData(url);
-  }, [selectedCity]);
+  }, [input]);
 
   return { data, loading };
 };
