@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Coordinate } from "./Config/citiesInfo";
 import { OpenWeather } from "./Clients/openWeather";
 import { SearchCity } from "./Components/SearchCity";
+import { Navbar } from "./Components/Navbar";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -30,34 +32,43 @@ function App() {
 
   return (
     <>
-      <GlobalStyle></GlobalStyle>
-      <Container>
-        <Cities
-          selectedCity={selectedCity}
-          onCityClick={handleCitySelection}
-        ></Cities>
-      </Container>
+      <Router>
+        <GlobalStyle></GlobalStyle>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Container>
+              <Cities
+                selectedCity={selectedCity}
+                onCityClick={handleCitySelection}
+              ></Cities>
+            </Container>
 
-      <SelectInfo>
-        <h2>Zaznaczony element:</h2>
+            <SelectInfo>
+              <h2>Zaznaczony element:</h2>
 
-        {loading ? (
-          <div>...loading</div>
-        ) : (
-          <div>
-            <p>Szerokość geograficzna: {data.lat}</p>
-            <p>Długośc geograficzna: {data.lon}</p>
-            <p>Nazwa: {data.name}</p>
-            <p>
-              Temperatura:{" "}
-              {(Math.round((data.temp - 273.15) * 100) / 100).toFixed(1)}
-            </p>
-            <p>Ciśnienie: {data.pressure}</p>
-            <p>Strefa czasowa: {data.timeZone}</p>
-          </div>
-        )}
-      </SelectInfo>
-      <SearchCity></SearchCity>
+              {loading ? (
+                <div>...loading</div>
+              ) : (
+                <div>
+                  <p>Szerokość geograficzna: {data.lat}</p>
+                  <p>Długośc geograficzna: {data.lon}</p>
+                  <p>Nazwa: {data.name}</p>
+                  <p>
+                    Temperatura:{" "}
+                    {(Math.round((data.temp - 273.15) * 100) / 100).toFixed(1)}
+                  </p>
+                  <p>Ciśnienie: {data.pressure}</p>
+                  <p>Strefa czasowa: {data.timeZone}</p>
+                </div>
+              )}
+            </SelectInfo>
+          </Route>
+          <Route path="/search">
+            <SearchCity></SearchCity>
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
