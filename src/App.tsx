@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { Cities } from "./Components/Cities";
-
 import { GlobalStyle } from "./GlobalStyles";
 import { useState } from "react";
-import { Coordinate } from "./Config/citiesInfo";
+import { Coordinate } from "./Data/citiesInfo";
 import { OpenWeather } from "./Clients/openWeather";
-import { SearchCity } from "./Components/SearchCity";
+import { SearchCity } from "./pages/SearchCity";
 import { Navbar } from "./Components/Navbar";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 

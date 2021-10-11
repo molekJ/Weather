@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Coordinate } from "../Config/citiesInfo";
+import { Coordinate } from "../Data/citiesInfo";
 
 export const OpenWeather = (url: string, selectedCity: Coordinate | null) => {
   const [data, setData] = useState<boolean | any>(null);

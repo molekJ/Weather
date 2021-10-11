@@ -1,4 +1,4 @@
-import { citiesInfo, Coordinate } from "../Config/citiesInfo";
+import { citiesInfo, Coordinate } from "../Data/citiesInfo";
 
 interface Props {
   selectedCity: Coordinate | null;
