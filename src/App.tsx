@@ -7,6 +7,7 @@ import { OpenWeather } from "./Clients/openWeather";
 import { SearchCity } from "./pages/SearchCity";
 import { Navbar } from "./Components/Navbar";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { DisplayWeather } from "./Components/DisplayWeather/DisplayWeather";
 
 const Container = styled.div`
   display: flex;
@@ -46,20 +47,22 @@ function App() {
             <SelectInfo>
               <h2>Zaznaczony element:</h2>
 
-              {loading ? (
-                <div>...loading</div>
-              ) : (
-                <div>
-                  <p>Szerokość geograficzna: {data.lat}</p>
-                  <p>Długośc geograficzna: {data.lon}</p>
-                  <p>Nazwa: {data.name}</p>
-                  <p>
-                    Temperatura:{" "}
-                    {(Math.round((data.temp - 273.15) * 100) / 100).toFixed(1)}
-                  </p>
-                  <p>Ciśnienie: {data.pressure}</p>
-                  <p>Strefa czasowa: {data.timeZone}</p>
-                </div>
+              {loading ? <div>...loading</div> : <p>Elo</p>}
+              {data && (
+                <DisplayWeather
+                  name={data?.name}
+                  temp={data?.temp}
+                  humidity={data?.humidity}
+                  pressure={data?.pressure}
+                  windSpeed={data?.windSpeed}
+                  windDirection={data?.windDirection}
+                  clouds={data?.clouds}
+                  timeZone={data?.timeZone}
+                  lat={data?.lat}
+                  lon={data?.lon}
+                  sunrise={data?.sunrise}
+                  sunset={data?.sunset}
+                />
               )}
             </SelectInfo>
           </Route>

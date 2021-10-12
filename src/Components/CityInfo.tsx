@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 interface Props {
   name: string;
   lat: number;
