@@ -12,8 +12,22 @@ export const citiesInfo: City[] = [
   {
     name: "Biała Podlaska",
     coordinates: {
-      latitude: "52.033333",
-      longitude: "23.116667",
+      latitude: "52.0323800",
+      longitude: "23.1165200",
+    },
+  },
+  {
+    name: "Bydgoszcz",
+    coordinates: {
+      latitude: "53.1235000",
+      longitude: "18.0076200",
+    },
+  },
+  {
+    name: "Toruń",
+    coordinates: {
+      latitude: "53.0137500",
+      longitude: "18.5981400",
     },
   },
   {
@@ -24,10 +38,10 @@ export const citiesInfo: City[] = [
     },
   },
   {
-    name: "Zakopane",
+    name: "Zielona Góra",
     coordinates: {
-      latitude: "49.2969446",
-      longitude: "19.950659",
+      latitude: "51.9354800",
+      longitude: "15.5064300",
     },
   },
   {
@@ -45,10 +59,31 @@ export const citiesInfo: City[] = [
     },
   },
   {
-    name: "Lublin",
+    name: "Łódź",
     coordinates: {
-      latitude: "51.251618",
-      longitude: "22.568970",
+      latitude: "51.7500000",
+      longitude: "19.4666700",
+    },
+  },
+  {
+    name: "Rzeszów",
+    coordinates: {
+      latitude: "50.0413200",
+      longitude: "21.9990100",
+    },
+  },
+  {
+    name: "Gdańsk",
+    coordinates: {
+      latitude: "54.3520500",
+      longitude: "18.6463700",
+    },
+  },
+  {
+    name: "Katowice",
+    coordinates: {
+      latitude: "50.2584100",
+      longitude: "19.0275400",
     },
   },
 ];
