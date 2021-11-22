@@ -8,6 +8,7 @@ import { SearchCity } from "./pages/SearchCity";
 import { Navbar } from "./Components/Navbar";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { DisplayWeather } from "./Components/DisplayWeather/DisplayWeather";
+import { SimpleMap } from "./Components/Mapy/Mapy";
 
 const Container = styled.div`
   display: flex;
@@ -49,20 +50,25 @@ function App() {
 
               {loading ? <div>...loading</div> : <p>Elo</p>}
               {data && (
-                <DisplayWeather
-                  name={data?.name}
-                  temp={data?.temp}
-                  humidity={data?.humidity}
-                  pressure={data?.pressure}
-                  windSpeed={data?.windSpeed}
-                  windDirection={data?.windDirection}
-                  clouds={data?.clouds}
-                  timeZone={data?.timeZone}
-                  lat={data?.lat}
-                  lon={data?.lon}
-                  sunrise={data?.sunrise}
-                  sunset={data?.sunset}
-                />
+                <>
+                  <DisplayWeather
+                    name={data?.name}
+                    temp={data?.temp}
+                    humidity={data?.humidity}
+                    pressure={data?.pressure}
+                    windSpeed={data?.windSpeed}
+                    windDirection={data?.windDirection}
+                    clouds={data?.clouds}
+                    timeZone={data?.timeZone}
+                    lat={data?.lat}
+                    lon={data?.lon}
+                    sunrise={data?.sunrise}
+                    sunset={data?.sunset}
+                  />
+                  <SimpleMap
+                    center={{ lat: data.lat, lng: data.lon }}
+                  ></SimpleMap>
+                </>
               )}
             </SelectInfo>
           </Route>

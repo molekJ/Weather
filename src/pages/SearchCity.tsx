@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Search } from "../Clients/search";
 import { DisplayWeather } from "../Components/DisplayWeather/DisplayWeather";
 import { Form } from "../Components/Form/Form";
-import SimpleMap from "../Components/Mapy/Mapy";
+import { SimpleMap } from "../Components/Mapy/Mapy";
 
 export const SearchCity = () => {
   const [input, setInput] = useState<string>("");
@@ -16,7 +16,6 @@ export const SearchCity = () => {
   return (
     <>
       <Form setInput={setInput} setInput2={setInput2} input={input} />
-      <SimpleMap></SimpleMap>
 
       {error && <p>Nieprawidłowa nazwa</p>}
       {data && (
@@ -34,6 +33,9 @@ export const SearchCity = () => {
           sunrise={data.sunrise}
           sunset={data.sunset}
         />
+      )}
+      {data && (
+        <SimpleMap center={{ lat: data.lat, lng: data.lon }}></SimpleMap>
       )}
     </>
   );
