@@ -12,7 +12,12 @@ import { SimpleMap } from "./Components/Mapy/Mapy";
 
 const Container = styled.div`
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
+`;
+
+const EmptyContainer = styled.div`
+  width: 1000px;
+  height: 400px;
 `;
 
 const SelectInfo = styled.div`
@@ -46,7 +51,7 @@ function App() {
               ></Cities>
               <SelectInfo>
                 {/* {loading && <div>...loading</div>} */}
-                {data && (
+                {data ? (
                   <>
                     <DisplayWeather
                       name={data?.name}
@@ -66,6 +71,8 @@ function App() {
                       center={{ lat: data.lat, lng: data.lon }}
                     ></SimpleMap>
                   </>
+                ) : (
+                  <EmptyContainer></EmptyContainer>
                 )}
               </SelectInfo>
             </Container>

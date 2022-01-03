@@ -40,6 +40,3 @@ export const SearchCity = () => {
     </>
   );
 };
-{
-  /* <DisplayWeather data={data?.name, data?.temp, data?.humidity, data?.pressure, data?.windSpeed, data?.windDirection, data?.clouds, data?.timeZone, data?.lat, data?.lon}/> */
-}
