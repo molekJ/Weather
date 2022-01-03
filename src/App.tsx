@@ -12,6 +12,7 @@ import { SimpleMap } from "./Components/Mapy/Mapy";
 
 const Container = styled.div`
   display: flex;
+  /* justify-content: center; */
 `;
 
 const SelectInfo = styled.div`
@@ -43,34 +44,31 @@ function App() {
                 selectedCity={selectedCity}
                 onCityClick={handleCitySelection}
               ></Cities>
+              <SelectInfo>
+                {/* {loading && <div>...loading</div>} */}
+                {data && (
+                  <>
+                    <DisplayWeather
+                      name={data?.name}
+                      temp={data?.temp}
+                      humidity={data?.humidity}
+                      pressure={data?.pressure}
+                      windSpeed={data?.windSpeed}
+                      windDirection={data?.windDirection}
+                      clouds={data?.clouds}
+                      timeZone={data?.timeZone}
+                      lat={data?.lat}
+                      lon={data?.lon}
+                      sunrise={data?.sunrise}
+                      sunset={data?.sunset}
+                    />
+                    <SimpleMap
+                      center={{ lat: data.lat, lng: data.lon }}
+                    ></SimpleMap>
+                  </>
+                )}
+              </SelectInfo>
             </Container>
-
-            <SelectInfo>
-              <h2>Zaznaczony element:</h2>
-
-              {loading ? <div>...loading</div> : <p>Elo</p>}
-              {data && (
-                <>
-                  <DisplayWeather
-                    name={data?.name}
-                    temp={data?.temp}
-                    humidity={data?.humidity}
-                    pressure={data?.pressure}
-                    windSpeed={data?.windSpeed}
-                    windDirection={data?.windDirection}
-                    clouds={data?.clouds}
-                    timeZone={data?.timeZone}
-                    lat={data?.lat}
-                    lon={data?.lon}
-                    sunrise={data?.sunrise}
-                    sunset={data?.sunset}
-                  />
-                  <SimpleMap
-                    center={{ lat: data.lat, lng: data.lon }}
-                  ></SimpleMap>
-                </>
-              )}
-            </SelectInfo>
           </Route>
           <Route path="/search">
             <SearchCity></SearchCity>

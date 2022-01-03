@@ -5,7 +5,6 @@ const Poiner = styled.div`
   position: relative;
   left: -10px;
   top: -20px;
-  /* background: white; */
   border-radius: 50% 50% 50% 0;
   border: 4px solid #ea4335;
   width: 20px;
@@ -13,6 +12,7 @@ const Poiner = styled.div`
   transform: rotate(-45deg);
 `;
 
+const AnyReactComponent = ({ text }: { text: any }) => <div>{text}</div>;
 interface Props {
   center: {
     lat: number;
@@ -28,7 +28,8 @@ export const SimpleMap = ({ center }: Props) => {
         defaultCenter={center}
         defaultZoom={7}
       >
-        <Poiner></Poiner>
+        {/* <Poiner></Poiner> */}
+        {/* <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" /> */}
       </GoogleMapReact>
     </div>
   );
